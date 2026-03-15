@@ -49,7 +49,11 @@
 <ul>
 <li>felipencsj [at] gmail.com</li>
 </ul>
-<p>Hey! I'm interested in evolutionary computation, particularly applied to game development — like procedural content generation — but also for artificial life (Alife). I'm fascinated by the concept of novelty and emergence in open-ended systems! I think it'd be also to understand how we take advantage of evolution's capacity to produce a variety of solutions. Currently, I'm experimenting with cellular genetic algorithms (cGA) for procedural game generation and artificial creature evolution! Evolution is pretty cool — if you want a quick demo, I made one inspired by picbreeder in PICO-8 (a fantasy console) that you can check out <a href="https://non4to.itch.io/pixel-breeder">here</a>!</p><p>Also, check my blog and my itch! :) </p>
+<p>
+I'm a PhD researcher at the University of Tsukuba working with evolutionary computation and Quality-Diversity algorithms. 
+What draws me to this field is the capacity of evolution to generate a wide variety of solutions without being told what to look for — novelty and diversity as a feature, not a side effect.
+I build simulations and tools that explore this idea: artificial creatures, procedural generators, open-ended systems where interesting things emerge from simple rules. If you want a quick taste, I made a demo inspired by Picbreeder in PICO-8 that you can try <a href="https://non4to.itch.io/pixel-breeder">here</a>.
+You can also find my projects on GitHub and follow my writing on the blog.</p>
 <h2 id="index">Index</h2>
 <ul>
 <li><a href="#education">Education</a> </li>
@@ -138,38 +142,36 @@ Member of Arduino teaching group. </p>
 </ul>
 <h2 id="projects">Projects [<a href="#felipe-nonato-cardoso-sobral-junior">top</a>]</h2>
 <ul>
-<li><p><strong>PhD Research (Working in progress)</strong><br>
+<li><p><strong>SoftbodyGodot</strong><br>
 -- <a href="https://github.com/non4to/SoftbodyGodot">/non4to/SoftbodyGodot</a><br>
-(Often mentioned in the blog!) Softbody simulation using GODOT game engine. <br>
-• Cells use energy at each step and to move, they can also attach and de-attach themselves.<br>
-• Attached cells share the energy. It turns into an energy bank, if this bank depletes, every cell inside dies.<br>
-• Cells still control their own movement when attached.<br>
-• Food sources have collision and can be moved by cells.<br>
+Artificial Life simulation of softbody organisms that self-replicate, form physical attachments, and evolve behavior over time. Each organism carries a gene encoding movement, attachment, and survival strategies. Built in Godot 4 with Rapier2D.</p>
 
-</li>
-<li><p><strong>EvoExperiment (2024)</strong><br>
--- <a href="https://github.com/non4to/evo-experiment">/non4to/evo-experiment</a><br>
-Done with python, using pygame for visualization. I wanted to integrate markov chains to a GA. Plants in this environment can stay idle, eat or reproduce. Transition matrix determine how the state transition happens. These matrixes may mutate by changing the transition probabilities. Different levels of energy were considered to different state levels. Looking forward to add more interaction between plants.</p>
-</li>
 <li><p><strong>RGPlants - PROCJAM2024 (2024)</strong><br>
 -- <a href="https://github.com/non4to/PROCJAM-2024">/non4to/PROCJAM-2024</a><br>
-Done with python and pygame for visualization. Entry to procjam 2024. Each pixel may be occupied by a plant that has and RGB code as a gene. The color of each pixel is the average of the gene of its neighbors. Plants may either die, mutate or multiply themselves to its neighbors, each action determinated by chance. Changing mutation rates or including crossover between genes creates different color patterns on the screen. I intent to add more possible combinations. The web version needs to be updated.</p>
+Open-ended evolution simulation where 4,096 color-coded organisms spread, blend, and mutate across a grid. No fitness function — only emergent patterns from local neighbor interactions. Built with Python and Pygame. Submitted to PROCJAM 2024. </p>
 </li>
-<li><p><strong>Bloop!Jump - LOWRESJAM2023 (2023)</strong><br>
--- <a href="https://djuniou.itch.io/bloop-jump">You can play here</a><br>
-Done with pico8. Entry to lowresjam 2023. A (difficult) platformer where a blob&#39;s goal is to get to the top of the stage. The blob can move left and right, its jump can be charged and if it hits a wall mid-jump, its trajectory can&#39;t be changed.</p>
-</li>
-<li><p><strong>Rhymming and Saying (2023)</strong><br>
--- <a href="https://github.com/non4to/Rhymming-and-Sayings">/non4to/Rhymming-and-Sayings</a><br>
-Done with Python. A formal grammar that uses wordnet to look for words that rhyme with selected sayings. Words of specifics classes (adjective, adverbs, etc) have their last phoneme compared to the last phoneme of the saying to ensure they rhyme. Sometimes we get funny outputs. </p>
-</li>
+
 <li><p><strong>RPG NPC file creator (2023)</strong><br>
 -- <a href="https://github.com/non4to/CharacterFiles">/non4to/CharacterFiles</a><br>
-Done with Python. Used genetic algorithm to create character files for a TTRPG that I played with friends. A file was received as an input together with the desired % of wins. A population of files is generated and then goes through evaluation, recombination, mutation and selection until a certain threshold. It was a cool way to get enemies balanced with the DungeonMaster&#39;s intention. (Or a way for me to test my character files) </p>
+Genetic algorithm that evolves balanced TTRPG character sheets toward a user-defined win rate. Fitness evaluated via Monte Carlo simulation — 1,000 combat simulations per individual. Built with Python.</p>
 </li>
-<li><p><strong>Arduino Robot (2017)</strong><br>
-Built with classmates during undergraduation. A wheeled robot that used ARDUINO-UNO to proccess signals from ultra-sound, clapper, magnetomer sensors and an app that could control the robot. The first three were used when the robot was on autonomous mode, and the last and an user was controlling it. </p>
+
+<li><p><strong>Rhymming and Saying (2023)</strong><br>
+-- <a href="https://github.com/non4to/Rhymming-and-Sayings">/non4to/Rhymming-and-Sayings</a><br>
+Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python.</p>
 </li>
+
+<li><p><strong>Small games and interactive demos exploring evolutionary algorithms and procedural generation.</strong><br>
+<br><br>
+
+<iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/4042349"><a href="https://non4to.itch.io/pixel-breeder">Pixel Breeder by non4to</a></iframe>
+
+<br><br>
+<iframe src="https://itch.io/embed/4353838" width="552" height="167" frameborder="0"><a href="https://non4to.itch.io/game-of-sounds">Game of Sounds by non4to</a></iframe>
+
+<br><br>
+<iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/3542721"><a href="https://non4to.itch.io/game-of-colors">Game of Colors by non4to</a></iframe>
+
 </ul>
 
 
