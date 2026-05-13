@@ -53,9 +53,9 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
 
 ## Publications {#publications}
 ---
-*   (2020) Sobral Júnior, Felipe N. C; Rueda Medina, Augusto C.; **Performance indexes optimization applied to the Electrical System of Espírito Santo.** In: XXIII Congresso Brasileiro de Automática (CBA) 2020, Santa Maria (Virtual), RS, Brasil. Available in: [https://doi.org/10.48011/asba.v2i1.1127](https://doi.org/10.48011/asba.v2i1.1127)
-    
-*   (2016) Soares, R. B. ; Cunha, C. C. M. ; Menegaz, P. J. M. ; Miranda, C. M. ; Reis, I. A. ; Sobral Junior, F. N. C. ; Astore, L. M. ; Lima, B. S. ; Barroso, B. S. ; Caldeira, T. ; **Sandwich Graduation as an internalization strategy: UFES’s Electrical Engineering students experience.** In: XLIV CONGRESSO BRASILEIRO DE EDUCAÇÃO EM ENGENHARIA, 2016, Natal. Anais Cobenge 2016, 2016.
+* **Sobral Júnior, Felipe N. C**; Rueda Medina, Augusto C.; **Otimização de Índices de Desempenho Aplicado ao Sistema Elétrico do Espírito Santo. [Performance indexes optimization applied to the Electrical System of Espírito Santo, author's translation]** In: XXIII Congresso Brasileiro de Automática (CBA) 2020, Santa Maria (Virtual), RS, Brasil. ISSN: 2525-8311 Available at: https://sba.org.br/open_journal_systems/index.php/cba/article/view/1127　DOI: https://doi.org/10.48011/asba.v2i1.1127 (In portuguese)
+
+* Soares, R. B. ; Cunha, C. C. M. ; Menegaz, P. J. M. ; Miranda, C. M. ; Reis, I. A. ; **Sobral Junior, F. N. C.**; Astore, L. M. ; Lima, B. S. ; Barroso, B. S. ; Caldeira, T. ; **"Graduação Sanduíche como Estratégia de Internacionalização: Experiência dos Estudantes de Engenharia Elétrica da UFES" [Undergraduate Sandwich program as an internationalization strategy: The UFES Electrical Engineering student experience, author's translation]**. In: Proceedings of the XLIV Brazilian Congress on Engineering Education (COBENGE 2016). Natal, Brazil: ABENGE, 2016. ISSN: 2175-957X. Available at: www.abenge.org.br/cobenge/legado/arquivos/3/anais/anais/159860.pdf (In portuguese)
 
 ## Professional Experience {#professional-experience}
 ---
@@ -94,7 +94,7 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
     **Keywords:** Electrical Power Systems, Renewable Energy Sources, Markov Chains, Optimization.  
     **Skills:** Python, Pandas, Matlab, Excel, Optimization, Scientific Writing, Data Analysis, Research Presentation
     
-*   **(2018) BA Electrical Engineering - Federal University of Espírito Santo (Brazil)**
+*   **(2019) BA Electrical Engineering - Federal University of Espírito Santo (Brazil)**
     
 ## Other Activities {#other-activities}
 ---
