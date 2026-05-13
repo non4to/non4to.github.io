@@ -137,7 +137,7 @@
 <h3>2026-05-13</h3>
 <p><em>Status: In progress — display, audio, and input working. Final assembly underway.</em></p>
 <p>I really like handheld stuff! Me and my wife are always in the same ambient doing our stuff. Be it work or our hobbies. You have no idea how many monsters were hunted in monster hunter rise in my OLED switch in its handheld mode! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big to carry around. Another thing is that I wanted a device that not only could fit in my pocket but also could run my and other pico8 games that I like! I never had a Game Boy Advance, so I thought, hey, why not?! I do like electronics, and buying one ready felt less interesting than building one. I could unite both of my interests: GameDev and Electronics!</p>
-<p>The challenge: fitting a raspberry pi, a 2.8inch display, GPIO input handling, an audio amplifier inside a shell designed for 2001 hardware — without a PCB, without a kit, just components wired together! Oh yes, there's also the battery! This is my progress so far.</p>
+<p>The challenge: fitting a raspberry pi, a 2.8inch display, GPIO input handling, an audio amplifier inside a shell designed for 2001 hardware without the original PCB, without a kit, just components wired together! Oh yes, there's also the battery! This is my progress so far:</p>
 <h3>System</h3>
 <table>
 <thead>
@@ -199,7 +199,7 @@
 </div>
 
 <p>The first display I tried was an ILI9341. It worked! I got RetroPie running on it and was able to play Celeste on PICO-8. But the screen cracked while I was trying to adapt it do the GBA shell since it didn't fit cleanly inside even with physical modifications to the case. I replaced it with a ST7789 2.8" TFT, which fit the shell window much better. </p>
-<p>Both displays use the same driver: <a href="https://github.com/juj/fbcp-ili9341">fbcp-ili9341</a>. Setting it up requires compiling from source with the correct GPIO pin mappings for the specific wiring. The BCM pin numbering used by the driver doesn't match the physical pin numbers on the header — that caused some initial confusion. One issue I hit: after compilation the display was showing inverted colors. Looking at the driver's documentation, this is a known quirk for certain panels and is handled by a compile flag. My final cmake command was:</p>
+<p>Both displays use the same driver: <a href="https://github.com/juj/fbcp-ili9341">fbcp-ili9341</a>. Setting it up requires compiling from source with the correct GPIO pin mappings for the specific wiring. The BCM pin numbering used by the driver doesn't match the physical pin numbers on the header, which caused some initial confusion. One issue I hit: after compilation the display was showing inverted colors. Looking at the driver's documentation, this is a known quirk for certain panels and is handled by a compile flag. My final cmake command was:</p>
 <blockquote>
 <p><code>cmake -DST7789=ON -DGPIO_TFT_DATA_CONTROL=24 -DGPIO_TFT_RESET_PIN=25 -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_INVERT_COLORS=ON -DSTATISTICS=0 ..</code></p>
 </blockquote>
@@ -226,8 +226,8 @@
 
 </div>
 
-<p>Input is handled via <a href="https://github.com/mholgatem/GPIOnext">GPIOnext</a>, which maps GPIO pins to gamepad buttons and exposes them as a standard input device to RetroPie. The GBA shell uses original-style button PCBs — D-pad on the left, A/B/X/Y on the right — which I wired directly to the GPIO header through a breadboard during prototyping.
-I also tested a Pro Controller connected via bluetooth, which worked without additional configuration. GPIOnext handles the native GPIO buttons for the final build.</p>
+<p>Input is handled via <a href="https://github.com/mholgatem/GPIOnext">GPIOnext</a>, which maps GPIO pins to gamepad buttons and exposes them as a standard input device to RetroPie. The GBA shell uses original-style button PCBs: D-pad on the left, A/B on the right, L/R on top which I wired directly to the GPIO header through a breadboard during prototyping.
+I also tested a Pro Controller connected via bluetooth. It worked without additional configuration, just a bit of try and error to pair. GPIOnext handles the native GPIO buttons for the final build.</p>
 <h3>Audio</h3>
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
 
@@ -245,7 +245,7 @@ I also tested a Pro Controller connected via bluetooth, which worked without add
 
 </div>
 
-<p>Audio is handled by a PAM8302A class-D amplifier, which takes the Pi's PWM audio output and drives a small speaker. On the Raspberry Pi Zero 2W, audio output through GPIO requires enabling the dtoverlay=pwm-2chan overlay in config.txt. The PAM8302A is compact enough to fit inside the GBA shell alongside the other components.</p>
+<p>Audio is handled by a PAM8302A amplifier, which takes the Pi's PWM audio output and drives a small speaker (The original GBA one, it's not THAT good). On the Raspberry Pi Zero 2W, audio output through GPIO requires enabling the pwm and setting the right pin! The PAM8302A is compact enough to fit inside the GBA shell alongside the other components.</p>
 <h3>Assembly</h3>
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
 
@@ -267,7 +267,7 @@ I also tested a Pro Controller connected via bluetooth, which worked without add
 
 </div>
 
-<p>The GBA shell required physical modification to fit the hardware pieces. The original PCB mount points and battery compartment don't accommodate the Pi Zero 2W or the display PCB, so I removed material from the inside of the shell with hand tools to make room. The display window also needed adjustment to align with the ST7789 panel. The button PCBs from a GBA replacement kit connect to the GPIO header. Left side handles the D-pad, right side handles the face buttons. Start and Select are wired as separate tactile switches.</p>
+<p>The GBA shell required physical modification to fit the hardware pieces. The original PCB mount points and battery compartment don't accommodate the Pi Zero 2W or the display PCB, so I removed material from the inside of the shell with hand tools to make room. The display window also needed adjustment to align with the ST7789 panel. The button PCBs from a GBA replacement kit connect to the GPIO header. Left side handles the D-pad, right side handles A,B, Start and Select. L and R are wired as separate tactile switches.</p>
 <h3>What is running?</h3>
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
 
