@@ -1,6 +1,6 @@
 AUTHOR = 'non4to'
 SITENAME = 'Felipe Nonato'
-SITEURL = "https://non4to.github.io"
+SITEURL = ""
 
 PATH = "content"
 
@@ -36,7 +36,7 @@ SOCIAL = (('linkedin', 'https://www.linkedin.com/in/felipesobraljr/'),
 DEFAULT_PAGINATION = 1
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 SIDEBAR_DIGEST = 'Phd Student - University of Tsukuba'
 

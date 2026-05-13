@@ -17,12 +17,10 @@
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <!-- Style Meta Data -->
-        <link rel="stylesheet" href="https://non4to.github.io/theme/css/style.css" type="text/css"/>
-        <link rel="stylesheet" href="https://non4to.github.io/theme/css/pygments.css" type="text/css"/>
+        <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css"/>
 
         <!-- Feed Meta Data -->
-            <link href="https://non4to.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-                  title="Felipe Nonato ATOM Feed"/>
 
         <!-- Twitter Feed -->
         <meta name="twitter:card" content="summary">
@@ -36,13 +34,13 @@
 <body>
 <!-- Sidebar -->
 <aside>
-    <!--<center><a href="https://non4to.github.io"><img id="avatar" src="images/avatar.jpeg"></a></center>-->
+    <!--<center><a href="."><img id="avatar" src="images/avatar.jpeg"></a></center>-->
     <h1>Felipe Nonato</h1>
         <p>Phd Student - University of Tsukuba</p>
 
         <center>
-            <a href="https://non4to.github.io">
-                <img src="https://non4to.github.io/images/avatar.jpeg" id="avatar-redondo">
+            <a href=".">
+                <img src="./images/avatar.jpeg" id="avatar-redondo">
             </a>
         </center>
     <br>
@@ -81,27 +79,27 @@
 
     <!-- <p class="social">
                 <a href="https://www.linkedin.com/in/felipesobraljr/" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/linkedin.png"></a>
+                        src="./theme/images/icons/linkedin.png"></a>
                 <a href="https://github.com/non4to" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/github.png"></a>
+                        src="./theme/images/icons/github.png"></a>
                 <a href="https://bsky.app/profile/non4to.bsky.social" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/bluesky.png"></a>
+                        src="./theme/images/icons/bluesky.png"></a>
                 <a href="https://sigmoid.social/@djuniou" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/mastodon.png"></a>
+                        src="./theme/images/icons/mastodon.png"></a>
                 <a href="https://non4to.itch.io/" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/gamepad.png"></a>
+                        src="./theme/images/icons/gamepad.png"></a>
                 <a href="mailto:felipencsj@gmail.com" target="_blank"><img
-                        src="https://non4to.github.io/theme/images/icons/envelope.png"></a>
-            <a href="https://non4to.github.io/feeds/all.atom.xml" rel="alternate">
-                <img src="https://non4to.github.io/theme/images/icons/rss.png"></a>
+                        src="./theme/images/icons/envelope.png"></a>
     </p> -->
 
         <h2>Categories</h2>
         <ul class="navbar">
                 <li><a
-                        href="https://non4to.github.io/category/random.html">Random</a></li>
+                        href="./category/project.html">Project</a></li>
                 <li><a
-                        href="https://non4to.github.io/category/research.html">Research</a></li>
+                        href="./category/random.html">Random</a></li>
+                <li><a
+                        href="./category/research.html">Research</a></li>
         </ul>
 
         <h2 class="blog_roll_link"><br/>BLOGROLLS</h2>
@@ -145,25 +143,34 @@
 <p><strong>SoftbodyGodot</strong><br>
     -- <a href="https://github.com/non4to/SoftbodyGodot">/non4to/SoftbodyGodot</a><br>
     Artificial Life simulation of softbody organisms that self-replicate, form physical attachments, and evolve behavior over time. Each organism carries a gene encoding movement, attachment, and survival strategies. Built in Godot 4 with Rapier2D.
-    <img alt="SoftbodyGodot demo" src="https://non4to.github.io/images/softbodygodot-demo.gif"></p>
+    <img alt="SoftbodyGodot demo" src="./images/softbodygodot-demo.gif"></p>
+</li>
+<li>
+<p><strong>fGBA - The pico8 game console (2025 - Current)</strong><br>
+    -- <a href="">details</a><br>
+    A retro handheld console built from scratch inside a Game Boy Advance shell. Powered by a Raspberry Pi Zero 2W, with a custom SPI display pipeline (ILI9341V + fbcp-ili9341), GPIO button input, PAM8302A audio amplifier, 2000mAh battery with boost converter and charger module. Running RetroPie, PICO-8 and steam link.
+    Display, audio, and input are fully functional. Currently in final assembly.
+    <div style="text-align: center; margin: 20px 0;">
+    <video width="80%" height="50%" controls>
+        <source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4">
+    </video>
+    <p><i>fGBA: PICO-8 running on ILI9341V display.</i></p></div></p>
 </li>
 <li>
 <p><strong>RGPlants - PROCJAM2024 (2024)</strong><br>
     -- <a href="https://github.com/non4to/PROCJAM-2024">/non4to/PROCJAM-2024</a><br>
     Open-ended evolution simulation where 4,096 color-coded organisms spread, blend, and mutate across a grid. No fitness function — only emergent patterns from local neighbor interactions. Built with Python and Pygame. Submitted to PROCJAM 2024.
-    <img alt="RGPlants demo" src="https://non4to.github.io/images/procjam2024-demo.gif"></p>
+    <img alt="RGPlants demo" src="./images/procjam2024-demo.gif"></p>
 </li>
 <li>
 <p><strong>RPG NPC file creator (2023)</strong><br>
     -- <a href="https://github.com/non4to/CharacterFiles">/non4to/CharacterFiles</a><br>
-    Genetic algorithm that evolves balanced TTRPG character sheets toward a user-defined win rate. Fitness evaluated via Monte Carlo simulation — 1,000 combat simulations per individual. Built with Python.
-    <img alt="eRPGfm demo" src="https://non4to.github.io/images/eRPGfm.png"></p>
+    Genetic algorithm that evolves balanced TTRPG character sheets toward a user-defined win rate. Fitness evaluated via Monte Carlo simulation — 1,000 combat simulations per individual. Built with Python.</p>
 </li>
 <li>
 <p><strong>Rhymming and Saying (2023)</strong><br>
     -- <a href="https://github.com/non4to/Rhymming-and-Sayings">/non4to/Rhymming-and-Sayings</a><br>
-    Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python.
-    <img alt="cfgrammar demo" src="https://non4to.github.io/images/cfgrammar-demo.png"></p>
+    Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python.</p>
 </li>
 <li>
 <p><strong>Small games and interactive demos.</strong>  </p>
@@ -181,10 +188,10 @@
 <hr>
 <ul>
 <li>
-<p>(2020) Sobral Júnior, Felipe N. C; Rueda Medina, Augusto C.; <strong>Performance indexes optimization applied to the Electrical System of Espírito Santo.</strong> In: XXIII Congresso Brasileiro de Automática (CBA) 2020, Santa Maria (Virtual), RS, Brasil. Available in: <a href="https://doi.org/10.48011/asba.v2i1.1127">https://doi.org/10.48011/asba.v2i1.1127</a></p>
+<p><strong>Sobral Júnior, Felipe N. C</strong>; Rueda Medina, Augusto C.; <strong>Otimização de Índices de Desempenho Aplicado ao Sistema Elétrico do Espírito Santo. [Performance indexes optimization applied to the Electrical System of Espírito Santo, author's translation]</strong> In: XXIII Congresso Brasileiro de Automática (CBA) 2020, Santa Maria (Virtual), RS, Brasil. ISSN: 2525-8311 Available at: https://sba.org.br/open_journal_systems/index.php/cba/article/view/1127　DOI: https://doi.org/10.48011/asba.v2i1.1127 (In portuguese)</p>
 </li>
 <li>
-<p>(2016) Soares, R. B. ; Cunha, C. C. M. ; Menegaz, P. J. M. ; Miranda, C. M. ; Reis, I. A. ; Sobral Junior, F. N. C. ; Astore, L. M. ; Lima, B. S. ; Barroso, B. S. ; Caldeira, T. ; <strong>Sandwich Graduation as an internalization strategy: UFES’s Electrical Engineering students experience.</strong> In: XLIV CONGRESSO BRASILEIRO DE EDUCAÇÃO EM ENGENHARIA, 2016, Natal. Anais Cobenge 2016, 2016.</p>
+<p>Soares, R. B. ; Cunha, C. C. M. ; Menegaz, P. J. M. ; Miranda, C. M. ; Reis, I. A. ; <strong>Sobral Junior, F. N. C.</strong>; Astore, L. M. ; Lima, B. S. ; Barroso, B. S. ; Caldeira, T. ; <strong>"Graduação Sanduíche como Estratégia de Internacionalização: Experiência dos Estudantes de Engenharia Elétrica da UFES" [Undergraduate Sandwich program as an internationalization strategy: The UFES Electrical Engineering student experience, author's translation]</strong>. In: Proceedings of the XLIV Brazilian Congress on Engineering Education (COBENGE 2016). Natal, Brazil: ABENGE, 2016. ISSN: 2175-957X. Available at: www.abenge.org.br/cobenge/legado/arquivos/3/anais/anais/159860.pdf (In portuguese)</p>
 </li>
 </ul>
 <h2 id="professional-experience">Professional Experience</h2>
@@ -234,7 +241,7 @@
 <strong>Skills:</strong> Python, Pandas, Matlab, Excel, Optimization, Scientific Writing, Data Analysis, Research Presentation</p>
 </li>
 <li>
-<p><strong>(2018) BA Electrical Engineering - Federal University of Espírito Santo (Brazil)</strong></p>
+<p><strong>(2019) BA Electrical Engineering - Federal University of Espírito Santo (Brazil)</strong></p>
 </li>
 </ul>
 <h2 id="other-activities">Other Activities</h2>

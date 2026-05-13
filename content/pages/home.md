@@ -24,12 +24,21 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
     Interactive evolution tool inspired by Picbreeder, built for PICO-8. It generates patterns from mathematical functions, allowing users to "breed" complex patterns through selection and mutation. A demonstration of emergent visual complexity from simple genetic rules.
     <iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/4042349"><a href="https://non4to.itch.io/pixel-breeder">Pixel Breeder by non4to</a></iframe>
 
-
 *   **SoftbodyGodot**  
     \-- [/non4to/SoftbodyGodot](https://github.com/non4to/SoftbodyGodot)  
     Artificial Life simulation of softbody organisms that self-replicate, form physical attachments, and evolve behavior over time. Each organism carries a gene encoding movement, attachment, and survival strategies. Built in Godot 4 with Rapier2D.
     ![SoftbodyGodot demo]({static}/images/softbodygodot-demo.gif)
-    
+
+*   **fGBA - The pico8 game console (2025 - Current)**  
+    \-- [details]()  
+    A retro handheld console built from scratch inside a Game Boy Advance shell. Powered by a Raspberry Pi Zero 2W, with a custom SPI display pipeline (ILI9341V + fbcp-ili9341), GPIO button input, PAM8302A audio amplifier, 2000mAh battery with boost converter and charger module. Running RetroPie, PICO-8 and steam link.
+    Display, audio, and input are fully functional. Currently in final assembly.
+    <div style="text-align: center; margin: 20px 0;">
+    <video width="80%" height="50%" controls>
+        <source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4">
+    </video>
+    <p><i>fGBA: PICO-8 running on ILI9341V display.</i></p></div>
+
 *   **RGPlants - PROCJAM2024 (2024)**  
     \-- [/non4to/PROCJAM-2024](https://github.com/non4to/PROCJAM-2024)  
     Open-ended evolution simulation where 4,096 color-coded organisms spread, blend, and mutate across a grid. No fitness function — only emergent patterns from local neighbor interactions. Built with Python and Pygame. Submitted to PROCJAM 2024.
@@ -38,12 +47,10 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
 *   **RPG NPC file creator (2023)**  
     \-- [/non4to/CharacterFiles](https://github.com/non4to/CharacterFiles)  
     Genetic algorithm that evolves balanced TTRPG character sheets toward a user-defined win rate. Fitness evaluated via Monte Carlo simulation — 1,000 combat simulations per individual. Built with Python.
-    ![eRPGfm demo]({static}/images/eRPGfm.png)
     
 *   **Rhymming and Saying (2023)**  
     \-- [/non4to/Rhymming-and-Sayings](https://github.com/non4to/Rhymming-and-Sayings)  
     Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python.
-    ![cfgrammar demo]({static}/images/cfgrammar-demo.png)
 
 *   **Small games and interactive demos.**  
       
