@@ -30,7 +30,7 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
     ![SoftbodyGodot demo]({static}/images/softbodygodot-demo.gif)
 
 *   **fGBA - The pico8 game console (2025 - Current)**  
-    \-- [details]()  
+    \-- [click for details!]({filename}/posts/2026-05-13.md)
     A retro handheld console built from scratch inside a Game Boy Advance shell. Powered by a Raspberry Pi Zero 2W, with a custom SPI display pipeline (ILI9341V + fbcp-ili9341), GPIO button input, PAM8302A audio amplifier, 2000mAh battery with boost converter and charger module. Running RetroPie, PICO-8 and steam link.
     Display, audio, and input are fully functional. Currently in final assembly.
     <div style="text-align: center; margin: 20px 0;">
