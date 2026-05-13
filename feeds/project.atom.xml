@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Felipe Nonato - Project</title><link href="https://non4to.github.io/" rel="alternate"/><link href="https://non4to.github.io/feeds/project.atom.xml" rel="self"/><id>https://non4to.github.io/</id><updated>2026-05-13T00:00:00+09:00</updated><entry><title>Building a Custom GBA Handheld with Raspberry Pi Zero 2W</title><link href="https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html" rel="alternate"/><published>2026-05-13T00:00:00+09:00</published><updated>2026-05-13T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2026-05-13:/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html</id><summary type="html">&lt;h1&gt;Custom GBA Handheld&lt;/h1&gt;
+&lt;h3&gt;2026-05-13&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Status: In progress — display, audio, and input working. Final assembly underway.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big. Another thing is that I wanted a device that could …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Custom GBA Handheld&lt;/h1&gt;
+&lt;h3&gt;2026-05-13&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Status: In progress — display, audio, and input working. Final assembly underway.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big. Another thing is that I wanted a device that could fit in my pocket and could run my and other pico8 games! I never had a Game Boy Advance, so I thought, hey, why not?! Buying one ready felt less interesting than building one. I could unite both of my interests: GameDev and Electronics!&lt;/p&gt;
+&lt;p&gt;The challenge: fitting a raspberry pi, a 2.8inch display, GPIO input handling, an audio amplifier inside a shell designed for 2001 hardware — without a PCB, without a kit, just components wired together! Oh yes, there's also the battery! This is my progress so far.&lt;/p&gt;
+&lt;h3&gt;System&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Part&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer&lt;/td&gt;
+&lt;td&gt;Raspberry Pi Zero 2 W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;RetroPie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display (Driver)&lt;/td&gt;
+&lt;td&gt;ST7789 2.8" SPI TFT (fbcp-ili9341)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input&lt;/td&gt;
+&lt;td&gt;GPIOnext (GPIO buttons)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Audio&lt;/td&gt;
+&lt;td&gt;PAM8302A amplifier&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Shell&lt;/td&gt;
+&lt;td&gt;RetroPie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;Original GBA case (modified)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Battery&lt;/td&gt;
+&lt;td&gt;2000mAh Li-Po&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Battery Charger&lt;/td&gt;
+&lt;td&gt;Mini 18650 TP4056 Lithium Battery Charger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DC-DC Converter&lt;/td&gt;
+&lt;td&gt;Boost Power Supply Module (winova)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Display&lt;/h3&gt;
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="/images/fGBA/new-display.jpeg" target="_blank"&gt;
+        &lt;img src="/images/fGBA/new-display.jpeg" 
+                alt="new-display" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The first display I tried was an ILI9341. It worked! I got RetroPie running on it and was able to play Celeste on PICO-8. But the screen cracked while I was trying to adapt it do the GBA shell since it didn't fit cleanly inside even with physical modifications to the case. I replaced it with a ST7789 2.8" TFT, which fit the shell window much better. &lt;/p&gt;
+&lt;p&gt;Both displays use the same driver: &lt;a href="https://github.com/juj/fbcp-ili9341"&gt;fbcp-ili9341&lt;/a&gt;. Setting it up requires compiling from source with the correct GPIO pin mappings for the specific wiring. The BCM pin numbering used by the driver doesn't match the physical pin numbers on the header — that caused some initial confusion. One issue I hit: after compilation the display was showing inverted colors. Looking at the driver's documentation, this is a known quirk for certain panels and is handled by a compile flag. My final cmake command was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cmake -DST7789=ON -DGPIO_TFT_DATA_CONTROL=24 -DGPIO_TFT_RESET_PIN=25 -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_INVERT_COLORS=ON -DSTATISTICS=0 ..&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Another thing I had to deal is due to how the display fit inside the shell I had to invert its image inside raspberry's boot config. This line inside the archive solved it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;display_rotate=2&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Input&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="/images/fGBA/set-up-button-test2.jpeg" target="_blank"&gt;
+        &lt;img src="/images/fGBA/set-up-button-test2.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 100%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="/images/fGBA/procontroller-usage.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Input is handled via &lt;a href="https://github.com/mholgatem/GPIOnext"&gt;GPIOnext&lt;/a&gt;, which maps GPIO pins to gamepad buttons and exposes them as a standard input device to RetroPie. The GBA shell uses original-style button PCBs — D-pad on the left, A/B/X/Y on the right — which I wired directly to the GPIO header through a breadboard during prototyping.
+I also tested a Pro Controller connected via bluetooth, which worked without additional configuration. GPIOnext handles the native GPIO buttons for the final build.&lt;/p&gt;
+&lt;h3&gt;Audio&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/monster-hunter-world-rasp-with-sound.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Audio is handled by a PAM8302A class-D amplifier, which takes the Pi's PWM audio output and drives a small speaker. On the Raspberry Pi Zero 2W, audio output through GPIO requires enabling the dtoverlay=pwm-2chan overlay in config.txt. The PAM8302A is compact enough to fit inside the GBA shell alongside the other components.&lt;/p&gt;
+&lt;h3&gt;Assembly&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/gba-kit.png" target="_blank"&gt;
+        &lt;img src="images/fGBA/gba-kit.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/gba-kit-pieces.png" target="_blank"&gt;
+        &lt;img src="images/fGBA/gba-kit-pieces.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The GBA shell required physical modification to fit the hardware pieces. The original PCB mount points and battery compartment don't accommodate the Pi Zero 2W or the display PCB, so I removed material from the inside of the shell with hand tools to make room. The display window also needed adjustment to align with the ST7789 panel. The button PCBs from a GBA replacement kit connect to the GPIO header. Left side handles the D-pad, right side handles the face buttons. Start and Select are wired as separate tactile switches.&lt;/p&gt;
+&lt;h3&gt;What is running?&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/steam-link-silksong.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/pico8-rasp.jpeg" target="_blank"&gt;
+        &lt;img src="images/fGBA/pico8-rasp.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;With display, input, and audio working, the system runs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RetroPie — the main OS and emulation frontend&lt;/li&gt;
+&lt;li&gt;PICO-8 — integrated as a RetroPie system; plays all PICO-8 cartridges&lt;/li&gt;
+&lt;li&gt;Steam Link — tested and working via command line; frontend integration still in progress&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;What's next?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Re-test sound system before soldering cabes&lt;/li&gt;
+&lt;li&gt;Final soldering — moving everything from breadboard to permanent connections&lt;/li&gt;
+&lt;li&gt;Fitting the Pi, amplifier, and speaker inside the shell with the battery&lt;/li&gt;
+&lt;li&gt;Power management: The power button must schedules the pi to turn off and not just disconnect the battery as this might corrupt the SD card with the OS.&lt;ul&gt;
+&lt;li&gt;Two button solution: One to turn the pi off and a hidden one that disconnects the pi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Steam Link frontend integration so it launches from the RetroPie menu&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Project"/><category term="Hardware"/><category term="Handheld"/><category term="Project"/></entry></feed>

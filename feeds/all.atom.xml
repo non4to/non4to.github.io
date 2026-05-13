@@ -1,8 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Felipe Nonato</title><link href="https://non4to.github.io/" rel="alternate"/><link href="https://non4to.github.io/feeds/all.atom.xml" rel="self"/><id>https://non4to.github.io/</id><updated>2025-04-15T00:00:00+09:00</updated><entry><title>Mario Maker 2 and Open-Endedness</title><link href="https://non4to.github.io/mario-maker-2-and-open-endedness.html" rel="alternate"/><published>2025-04-15T00:00:00+09:00</published><updated>2025-04-15T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2025-04-15:/mario-maker-2-and-open-endedness.html</id><summary type="html">&lt;h1&gt;Mario Maker 2 and Open-Endedness&lt;/h1&gt;
-&lt;h3&gt;15-April-2025&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Felipe Nonato</title><link href="https://non4to.github.io/" rel="alternate"/><link href="https://non4to.github.io/feeds/all.atom.xml" rel="self"/><id>https://non4to.github.io/</id><updated>2026-05-13T00:00:00+09:00</updated><entry><title>Building a Custom GBA Handheld with Raspberry Pi Zero 2W</title><link href="https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html" rel="alternate"/><published>2026-05-13T00:00:00+09:00</published><updated>2026-05-13T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2026-05-13:/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html</id><summary type="html">&lt;h1&gt;Custom GBA Handheld&lt;/h1&gt;
+&lt;h3&gt;2026-05-13&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Status: In progress — display, audio, and input working. Final assembly underway.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big. Another thing is that I wanted a device that could …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Custom GBA Handheld&lt;/h1&gt;
+&lt;h3&gt;2026-05-13&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Status: In progress — display, audio, and input working. Final assembly underway.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big. Another thing is that I wanted a device that could fit in my pocket and could run my and other pico8 games! I never had a Game Boy Advance, so I thought, hey, why not?! Buying one ready felt less interesting than building one. I could unite both of my interests: GameDev and Electronics!&lt;/p&gt;
+&lt;p&gt;The challenge: fitting a raspberry pi, a 2.8inch display, GPIO input handling, an audio amplifier inside a shell designed for 2001 hardware — without a PCB, without a kit, just components wired together! Oh yes, there's also the battery! This is my progress so far.&lt;/p&gt;
+&lt;h3&gt;System&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Part&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer&lt;/td&gt;
+&lt;td&gt;Raspberry Pi Zero 2 W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;RetroPie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display (Driver)&lt;/td&gt;
+&lt;td&gt;ST7789 2.8" SPI TFT (fbcp-ili9341)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input&lt;/td&gt;
+&lt;td&gt;GPIOnext (GPIO buttons)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Audio&lt;/td&gt;
+&lt;td&gt;PAM8302A amplifier&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Shell&lt;/td&gt;
+&lt;td&gt;RetroPie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;Original GBA case (modified)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Battery&lt;/td&gt;
+&lt;td&gt;2000mAh Li-Po&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Battery Charger&lt;/td&gt;
+&lt;td&gt;Mini 18650 TP4056 Lithium Battery Charger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DC-DC Converter&lt;/td&gt;
+&lt;td&gt;Boost Power Supply Module (winova)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Display&lt;/h3&gt;
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="/images/fGBA/new-display.jpeg" target="_blank"&gt;
+        &lt;img src="/images/fGBA/new-display.jpeg" 
+                alt="new-display" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The first display I tried was an ILI9341. It worked! I got RetroPie running on it and was able to play Celeste on PICO-8. But the screen cracked while I was trying to adapt it do the GBA shell since it didn't fit cleanly inside even with physical modifications to the case. I replaced it with a ST7789 2.8" TFT, which fit the shell window much better. &lt;/p&gt;
+&lt;p&gt;Both displays use the same driver: &lt;a href="https://github.com/juj/fbcp-ili9341"&gt;fbcp-ili9341&lt;/a&gt;. Setting it up requires compiling from source with the correct GPIO pin mappings for the specific wiring. The BCM pin numbering used by the driver doesn't match the physical pin numbers on the header — that caused some initial confusion. One issue I hit: after compilation the display was showing inverted colors. Looking at the driver's documentation, this is a known quirk for certain panels and is handled by a compile flag. My final cmake command was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cmake -DST7789=ON -DGPIO_TFT_DATA_CONTROL=24 -DGPIO_TFT_RESET_PIN=25 -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_INVERT_COLORS=ON -DSTATISTICS=0 ..&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Another thing I had to deal is due to how the display fit inside the shell I had to invert its image inside raspberry's boot config. This line inside the archive solved it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;display_rotate=2&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Input&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="/images/fGBA/set-up-button-test2.jpeg" target="_blank"&gt;
+        &lt;img src="/images/fGBA/set-up-button-test2.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 100%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="/images/fGBA/procontroller-usage.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Input is handled via &lt;a href="https://github.com/mholgatem/GPIOnext"&gt;GPIOnext&lt;/a&gt;, which maps GPIO pins to gamepad buttons and exposes them as a standard input device to RetroPie. The GBA shell uses original-style button PCBs — D-pad on the left, A/B/X/Y on the right — which I wired directly to the GPIO header through a breadboard during prototyping.
+I also tested a Pro Controller connected via bluetooth, which worked without additional configuration. GPIOnext handles the native GPIO buttons for the final build.&lt;/p&gt;
+&lt;h3&gt;Audio&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/monster-hunter-world-rasp-with-sound.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Audio is handled by a PAM8302A class-D amplifier, which takes the Pi's PWM audio output and drives a small speaker. On the Raspberry Pi Zero 2W, audio output through GPIO requires enabling the dtoverlay=pwm-2chan overlay in config.txt. The PAM8302A is compact enough to fit inside the GBA shell alongside the other components.&lt;/p&gt;
+&lt;h3&gt;Assembly&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/gba-kit.png" target="_blank"&gt;
+        &lt;img src="images/fGBA/gba-kit.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/gba-kit-pieces.png" target="_blank"&gt;
+        &lt;img src="images/fGBA/gba-kit-pieces.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The GBA shell required physical modification to fit the hardware pieces. The original PCB mount points and battery compartment don't accommodate the Pi Zero 2W or the display PCB, so I removed material from the inside of the shell with hand tools to make room. The display window also needed adjustment to align with the ST7789 panel. The button PCBs from a GBA replacement kit connect to the GPIO header. Left side handles the D-pad, right side handles the face buttons. Start and Select are wired as separate tactile switches.&lt;/p&gt;
+&lt;h3&gt;What is running?&lt;/h3&gt;
+&lt;div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;"&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;video style="width: 80%; max-width: 400px; border-radius: 8px;" controls&gt;
+        &lt;source src="images/fGBA/steam-link-silksong.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;a href="images/fGBA/pico8-rasp.jpeg" target="_blank"&gt;
+        &lt;img src="images/fGBA/pico8-rasp.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;With display, input, and audio working, the system runs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RetroPie — the main OS and emulation frontend&lt;/li&gt;
+&lt;li&gt;PICO-8 — integrated as a RetroPie system; plays all PICO-8 cartridges&lt;/li&gt;
+&lt;li&gt;Steam Link — tested and working via command line; frontend integration still in progress&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;What's next?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Re-test sound system before soldering cabes&lt;/li&gt;
+&lt;li&gt;Final soldering — moving everything from breadboard to permanent connections&lt;/li&gt;
+&lt;li&gt;Fitting the Pi, amplifier, and speaker inside the shell with the battery&lt;/li&gt;
+&lt;li&gt;Power management: The power button must schedules the pi to turn off and not just disconnect the battery as this might corrupt the SD card with the OS.&lt;ul&gt;
+&lt;li&gt;Two button solution: One to turn the pi off and a hidden one that disconnects the pi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Steam Link frontend integration so it launches from the RetroPie menu&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Project"/><category term="Hardware"/><category term="Handheld"/><category term="Project"/></entry><entry><title>Blog Post Title #1</title><link href="https://non4to.github.io/blog-post-title-1.html" rel="alternate"/><published>2025-09-06T00:00:00+09:00</published><updated>2025-09-06T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2025-09-06:/blog-post-title-1.html</id><summary type="html">&lt;h1&gt;Blog Post Title #1&lt;/h1&gt;
+&lt;h3&gt;2025-09-06&lt;/h3&gt;
+&lt;p&gt;Bloop!Jump is my first attempt into gamedev! It is a simple platformer where the goal is simple: Get to the top! I tried to make it a little bit difficult so...sorry if it was too much. (Or sorry if it was not at …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Blog Post Title #1&lt;/h1&gt;
+&lt;h3&gt;2025-09-06&lt;/h3&gt;
+&lt;p&gt;Bloop!Jump is my first attempt into gamedev! It is a simple platformer where the goal is simple: Get to the top! I tried to make it a little bit difficult so...sorry if it was too much. (Or sorry if it was not at all lol!) But I decided to blog this game as a story for future self! And for you too, reader.&lt;/p&gt;
+&lt;p&gt;There are a ton, seriously, absolutely A TON of tutorials on how to make games and how to use engines out there. I actually bought a course in Udemy once and did some games in unity during the course, but after I finished, I felt like I learned absolutely nothing. I would come back to unity and everything would look alien to me! That made me abandon it for a while. The pandemic didn't help and some stuff happening at home made me forget about it. To be fair...following tutorials step by step is a thing that never worked for me, at least not when I wanted to learn something that I wanted to apply by myself later.&lt;/p&gt;
+&lt;p&gt;Fast forward, I'm in Japan doing a Master's in CS (something that I always wanted, maybe I can talk about this in another post!) and specially motivated to do stuff I always wanted to do! Like learn how to gamedev, how to write interesting stories for games, study in-depth graph theory...and so I started to play a bit with Pico8. My adviser told me about it. It looked like a fun engine to play and learn. It wasn't that difficult and I saw lots of fun stuff made with it. So I practiced a bit in &lt;a href="https://tcc.lovebyte.party"&gt;Tiny Code Christmas&lt;/a&gt;. It was pretty fun! :D&lt;/p&gt;
+&lt;p&gt;Fast forward more months! I was going through some rough times with anxiety on having to write an phD proposal and doing my master's research. I was checking mastodon during a procrastination session and noticed &lt;a href="https://itch.io/jam/lowrezjam-2023"&gt;LOWRESJAM&lt;/a&gt;) Perfect! It was, honestly, the thing that put my mind at ease a little bit! I was doing my stuff and working on the game alternatively. It was some real good cleansing thing to me. And...I had fun!&lt;/p&gt;
+&lt;p&gt;I totally had 193956398493 ideas to put in this game. I would talk to my wife about the puzzles and story and meanings I wanted to put into the game... only then to remind myself that I should just get something ready. Something done. It was my first game after all. It didn't need to perfect. Hell! It didn't need to be good! It just needed to be.&lt;/p&gt;
+&lt;p&gt;All that considered, I did it! I got a lot of feedback from people in the jam and lots of evaluations! I was just happy that people took their time to play this simple thingy. I got top #101 overall. My first though was... "damn! so close to top100! " But then I just laughed it out. I had fun doing it, fixing it and actually playing it. I still have plans to update it with one or more levels and add some stuff I got feedback on. You can check the game on my itch: &lt;a href="https://djuniou.itch.io/bloop-jump"&gt;Bloop!Jump!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Welp! Too long for an intro post, but I kinda wanted to separate this one from the "devlog-like" thing I wanted to do later. So yea, next post I intent to talk about the ideas, the challenges the game presented to me and how I solved them!&lt;/p&gt;
+&lt;p&gt;See you in the next one! :D (Yes, the title was intentional!)&lt;/p&gt;</content><category term="Random"/><category term="Intro"/><category term="Random"/><category term="PCG"/><category term="Thoughts"/></entry><entry><title>Mario Maker 2 and Open-Endedness</title><link href="https://non4to.github.io/mario-maker-2-and-open-endedness.html" rel="alternate"/><published>2025-04-15T00:00:00+09:00</published><updated>2025-04-15T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2025-04-15:/mario-maker-2-and-open-endedness.html</id><summary type="html">&lt;h1&gt;Mario Maker 2 and Open-Endedness&lt;/h1&gt;
+&lt;h3&gt;2025-04-15&lt;/h3&gt;
 &lt;p&gt;I recently (finally!) bought my copy of Mario Maker 2 (MM2)! I've been having fun playing "One-Screen-Puzzle" levels and am still taking my time with the infamous troll levels. I'm an avid watcher of &lt;a href="https://www.youtube.com/@CarlSagan42"&gt;CarlSagan42&lt;/a&gt;, a person who plays lots of very difficult Mario …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Mario Maker 2 and Open-Endedness&lt;/h1&gt;
-&lt;h3&gt;15-April-2025&lt;/h3&gt;
+&lt;h3&gt;2025-04-15&lt;/h3&gt;
 &lt;p&gt;I recently (finally!) bought my copy of Mario Maker 2 (MM2)! I've been having fun playing "One-Screen-Puzzle" levels and am still taking my time with the infamous troll levels. I'm an avid watcher of &lt;a href="https://www.youtube.com/@CarlSagan42"&gt;CarlSagan42&lt;/a&gt;, a person who plays lots of very difficult Mario levels, Celeste levels, and...MM2 troll levels! Since I'm really fond of open-endedness evolution research, I've been thinking a lot about drawing a connection between this concept and the world of games. Watching so many of Carl's videos playing troll levels got me really impressed with what you can MAKE in MM2! It's as if...it's open-ended!&lt;/p&gt;
 &lt;p&gt;It's difficult for me to give a definition of open-endedness. You could read a lot of papers and each would give its own definition of it. It's hard to pin down a single, exact definition. But for the sake of simplicity, let's call open-endedness the capacity that a system has to constantly produce noticeable and relevant novelty. &lt;strong&gt;Noticeable&lt;/strong&gt; and &lt;strong&gt;relevant&lt;/strong&gt; being extremely relative here. Relative because it's really difficult to determine when something that happened, say in a simulation, is unique...to us. For the computer, it's probably pretty easy: Have you ever heard about the &lt;strong&gt;10,000 Bowls of Oatmeal&lt;/strong&gt; problem? We could generate millions of levels, but if they all feel the same to the player... is there anything new in them?&lt;/p&gt;
 &lt;blockquote&gt;
@@ -22,13 +206,13 @@
 &lt;p&gt;Sometimes bugs are used in these levels - and Nintendo is pretty quick in putting down the level that have them - but when I say "unexpected" I want to say that sometimes the player dies because something behaves differently due to some specific interaction: A mechanism off-screen turned a conveyor belt on and Mario was pushed to the pit again. How would you expect that?! Back to the beginning! The mechanisms that are often off-screen are the grinding the gears of these Fortrolls (Fortress+Trolls. I am not sorry.). And these are what the endless interactions and ways to kill Mario that we get. But ok, we don't need to be so mordbid, these mechanisms are also used to create cool challenging levels or simply showcases of the mechanism itself.&lt;/p&gt;
 &lt;p&gt;The question stays: How can we measure the novelty of these games simulations? How the interaction between entities influence the system outcome? How these influence the entities behavior? How these describe how much open-ended this system really is? These questions could totally be done for an Alife simulation. Games are also a great place to study computational creativity, and how each player's perception affects what is perceived as new, or not. You often only play these troll levels once. The second time, you know everything needed to be done in order to finish the level, so nothing might sound new to you.&lt;/p&gt;
 &lt;p&gt;Mario Maker 2 is going to be 6 years old later this year (2025) and we still get to play lots of different levels and actually experience different sensations and feelings with them. Troll levels are still showing how different interactions can be used to deliver a good gameplay experience (ok, this is totally debatable). But point is, this game is basically an open-ended canvas for diabolic (and angelic ones too) players to explore its systems and come up with different contraptions born out of the interactions of smaller parts. It's an open-ended system full of emergent behavior and creativity! Its Alife with plumbers and piranha plants.&lt;/p&gt;</content><category term="Research"/><category term="Research"/><category term="Open-endedness"/><category term="PCG"/></entry><entry><title>Mito-san: The mitochondrion</title><link href="https://non4to.github.io/mito-san-the-mitochondrion.html" rel="alternate"/><published>2025-03-26T00:00:00+09:00</published><updated>2025-03-26T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2025-03-26:/mito-san-the-mitochondrion.html</id><summary type="html">&lt;h1&gt;Mito-san: The mitochondrion&lt;/h1&gt;
-&lt;h3&gt;26-March-2025&lt;/h3&gt;
+&lt;h3&gt;2025-03-26&lt;/h3&gt;
 &lt;video width="100%" height="auto" controls&gt;
   &lt;source src="https://non4to.github.io/images/26-March-2025-mitosan.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
 
 &lt;p&gt;This is pretty cool. Every little square that forms that square is moving on its own. Right now, they are moving randomly and I did put them in that starting position. I wanted to see what I'm looking for, or at least one of the things …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Mito-san: The mitochondrion&lt;/h1&gt;
-&lt;h3&gt;26-March-2025&lt;/h3&gt;
+&lt;h3&gt;2025-03-26&lt;/h3&gt;
 &lt;video width="100%" height="auto" controls&gt;
   &lt;source src="https://non4to.github.io/images/26-March-2025-mitosan.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
@@ -39,12 +223,12 @@
 &lt;p&gt;Also, if you read the last blog post you may have noticed that food aren't particles anymore. I did this way because I was a bit afraid of dealing with a lot of collisions. But it's something that I may come back later.&lt;/p&gt;
 &lt;p&gt;Right now, I want to make the squares share their energy when they are attached: Everybody dies if energy is down! Then, implement self-replication. Then build a simple probability table that will determine to which direction they move. I'm heavily tending to implement a delay that will make them keep a chosen direction for some steps, but not sure yet. Still thinking about the last post too.&lt;/p&gt;
 &lt;p&gt;Not related, but I also have being thinking on making a troll-game in pico8 just like the troll levels I often see in MarioMaker2... I know, random right? I'd let you know my progress. Until next time!&lt;/p&gt;</content><category term="Research"/><category term="Research"/><category term="Alife"/><category term="Softbody"/><category term="Godot"/><category term="Simulation"/></entry><entry><title>Rules rules?</title><link href="https://non4to.github.io/rules-rules.html" rel="alternate"/><published>2025-03-21T00:00:00+09:00</published><updated>2025-03-21T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2025-03-21:/rules-rules.html</id><summary type="html">&lt;h1&gt;Rules rules?&lt;/h1&gt;
-&lt;h3&gt;21-March-2025&lt;/h3&gt;
+&lt;h3&gt;2025-03-21&lt;/h3&gt;
 &lt;blockquote class="mastodon-embed" data-embed-url="https://sigmoid.social/@djuniou/114199285138908727/embed" style="background: #FCF8FF; border-radius: 8px; border: 1px solid #C9C4DA; margin: 0; max-width: 540px; min-width: 270px; overflow: hidden; padding: 0;"&gt; &lt;a href="https://sigmoid.social/@djuniou/114199285138908727" target="_blank" style="align-items: center; color: #1C1A25; display: flex; flex-direction: column; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Roboto, sans-serif; font-size: 14px; justify-content: center; letter-spacing: 0.25px; line-height: 20px; padding: 24px; text-decoration: none;"&gt; &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 79 75"&gt;&lt;path d="M74.7135 16.6043C73.6199 8.54587 66.5351 2.19527 58.1366 0.964691C56.7196 0.756754 51.351 0 38.9148 0H38.822C26.3824 0 23.7135 0.756754 22.2966 0.964691C14.1319 2.16118 6.67571 7.86752 4.86669 16.0214C3.99657 20.0369 3.90371 24.4888 4.06535 28.5726C4.29578 34.4289 4.34049 40.275 4.877 46.1075C5.24791 49.9817 5.89495 53.8251 6.81328 57.6088C8.53288 64.5968 15.4938 70.4122 22.3138 72.7848C29.6155 75.259 37.468 75.6697 44.9919 73.971C45.8196 73.7801 46.6381 73.5586 47.4475 73.3063C49.2737 72.7302 51.4164 72.086 52.9915 70.9542C53.0131 70.9384 53.0308 70.9178 53.0433 70.8942C53.0558 70.8706 53.0628 70.8445 53.0637 70.8179V65.1661C53.0634 65.1412 53.0574 65.1167 53.0462 65.0944C53.035 65.0721 53.0189 65.0525 52.9992 65.0371C52.9794 65.0218 52.9564 65.011 52.9318 65.0056C52.9073 65.0002 52.8819 65.0003 52.8574 65.0059C48.0369 66.1472 43.0971 66.7193 38.141 66.7103C29.6118 66.7103 27.3178 62.6981 26.6609 61.0278C26.1329 59.5842 25.7976 58.0784 25.6636 56.5486C25.6622 56.5229 25.667 56.4973 25.6775 56.4738C25.688 56.4502 25.7039 56.4295 25.724 56.4132C25.7441 56.397 25.7678 56.3856 25.7931 56.3801C25.8185 56.3746 25.8448 56.3751 25.8699 56.3816C30.6101 57.5151 35.4693 58.0873 40.3455 58.086C41.5183 58.086 42.6876 58.086 43.8604 58.0553C48.7647 57.919 53.9339 57.6701 58.7591 56.7361C58.8794 56.7123 58.9998 56.6918 59.103 56.6611C66.7139 55.2124 73.9569 50.665 74.6929 39.1501C74.7204 38.6967 74.7892 34.4016 74.7892 33.9312C74.7926 32.3325 75.3085 22.5901 74.7135 16.6043ZM62.9996 45.3371H54.9966V25.9069C54.9966 21.8163 53.277 19.7302 49.7793 19.7302C45.9343 19.7302 44.0083 22.1981 44.0083 27.0727V37.7082H36.0534V27.0727C36.0534 22.1981 34.124 19.7302 30.279 19.7302C26.8019 19.7302 25.0651 21.8163 25.0617 25.9069V45.3371H17.0656V25.3172C17.0656 21.2266 18.1191 17.9769 20.2262 15.568C22.3998 13.1648 25.2509 11.9308 28.7898 11.9308C32.8859 11.9308 35.9812 13.492 38.0447 16.6111L40.036 19.9245L42.0308 16.6111C44.0943 13.492 47.1896 11.9308 51.2788 11.9308C54.8143 11.9308 57.6654 13.1648 59.8459 15.568C61.9529 17.9746 63.0065 21.2243 63.0065 25.3172L62.9996 45.3371Z" fill="currentColor"/&gt;&lt;/svg&gt; &lt;div style="color: #787588; margin-top: 16px;"&gt;Post by @djuniou@sigmoid.social&lt;/div&gt; &lt;div style="font-weight: 500;"&gt;View on Mastodon&lt;/div&gt; &lt;/a&gt; &lt;/blockquote&gt;
 &lt;script data-allowed-prefixes="https://sigmoid.social/" async src="https://sigmoid.social/embed.js"&gt;&lt;/script&gt;
 
 &lt;p&gt;Sorry for the flashbang. I tried putting a spoiler thing so that the video would only appear when you clicked on it, but after a while I just wanted to play Monster Hunter Rise again. I promise next time …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Rules rules?&lt;/h1&gt;
-&lt;h3&gt;21-March-2025&lt;/h3&gt;
+&lt;h3&gt;2025-03-21&lt;/h3&gt;
 &lt;blockquote class="mastodon-embed" data-embed-url="https://sigmoid.social/@djuniou/114199285138908727/embed" style="background: #FCF8FF; border-radius: 8px; border: 1px solid #C9C4DA; margin: 0; max-width: 540px; min-width: 270px; overflow: hidden; padding: 0;"&gt; &lt;a href="https://sigmoid.social/@djuniou/114199285138908727" target="_blank" style="align-items: center; color: #1C1A25; display: flex; flex-direction: column; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Roboto, sans-serif; font-size: 14px; justify-content: center; letter-spacing: 0.25px; line-height: 20px; padding: 24px; text-decoration: none;"&gt; &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 79 75"&gt;&lt;path d="M74.7135 16.6043C73.6199 8.54587 66.5351 2.19527 58.1366 0.964691C56.7196 0.756754 51.351 0 38.9148 0H38.822C26.3824 0 23.7135 0.756754 22.2966 0.964691C14.1319 2.16118 6.67571 7.86752 4.86669 16.0214C3.99657 20.0369 3.90371 24.4888 4.06535 28.5726C4.29578 34.4289 4.34049 40.275 4.877 46.1075C5.24791 49.9817 5.89495 53.8251 6.81328 57.6088C8.53288 64.5968 15.4938 70.4122 22.3138 72.7848C29.6155 75.259 37.468 75.6697 44.9919 73.971C45.8196 73.7801 46.6381 73.5586 47.4475 73.3063C49.2737 72.7302 51.4164 72.086 52.9915 70.9542C53.0131 70.9384 53.0308 70.9178 53.0433 70.8942C53.0558 70.8706 53.0628 70.8445 53.0637 70.8179V65.1661C53.0634 65.1412 53.0574 65.1167 53.0462 65.0944C53.035 65.0721 53.0189 65.0525 52.9992 65.0371C52.9794 65.0218 52.9564 65.011 52.9318 65.0056C52.9073 65.0002 52.8819 65.0003 52.8574 65.0059C48.0369 66.1472 43.0971 66.7193 38.141 66.7103C29.6118 66.7103 27.3178 62.6981 26.6609 61.0278C26.1329 59.5842 25.7976 58.0784 25.6636 56.5486C25.6622 56.5229 25.667 56.4973 25.6775 56.4738C25.688 56.4502 25.7039 56.4295 25.724 56.4132C25.7441 56.397 25.7678 56.3856 25.7931 56.3801C25.8185 56.3746 25.8448 56.3751 25.8699 56.3816C30.6101 57.5151 35.4693 58.0873 40.3455 58.086C41.5183 58.086 42.6876 58.086 43.8604 58.0553C48.7647 57.919 53.9339 57.6701 58.7591 56.7361C58.8794 56.7123 58.9998 56.6918 59.103 56.6611C66.7139 55.2124 73.9569 50.665 74.6929 39.1501C74.7204 38.6967 74.7892 34.4016 74.7892 33.9312C74.7926 32.3325 75.3085 22.5901 74.7135 16.6043ZM62.9996 45.3371H54.9966V25.9069C54.9966 21.8163 53.277 19.7302 49.7793 19.7302C45.9343 19.7302 44.0083 22.1981 44.0083 27.0727V37.7082H36.0534V27.0727C36.0534 22.1981 34.124 19.7302 30.279 19.7302C26.8019 19.7302 25.0651 21.8163 25.0617 25.9069V45.3371H17.0656V25.3172C17.0656 21.2266 18.1191 17.9769 20.2262 15.568C22.3998 13.1648 25.2509 11.9308 28.7898 11.9308C32.8859 11.9308 35.9812 13.492 38.0447 16.6111L40.036 19.9245L42.0308 16.6111C44.0943 13.492 47.1896 11.9308 51.2788 11.9308C54.8143 11.9308 57.6654 13.1648 59.8459 15.568C61.9529 17.9746 63.0065 21.2243 63.0065 25.3172L62.9996 45.3371Z" fill="currentColor"/&gt;&lt;/svg&gt; &lt;div style="color: #787588; margin-top: 16px;"&gt;Post by @djuniou@sigmoid.social&lt;/div&gt; &lt;div style="font-weight: 500;"&gt;View on Mastodon&lt;/div&gt; &lt;/a&gt; &lt;/blockquote&gt;
 &lt;script data-allowed-prefixes="https://sigmoid.social/" async src="https://sigmoid.social/embed.js"&gt;&lt;/script&gt;
 
@@ -56,20 +240,9 @@
 &lt;p&gt;Is there a defined trade-off to where we have "good" or "relevant" emergent behavior? Maybe I should be clearer with what is "good" or "relevant". I think for now, behavior that allowed a long life should be enough.&lt;/p&gt;
 &lt;p&gt;Oh well. Should think more about this. I'll be updating the rules with some simpler stuff and also change the food a bit. See you next time!&lt;/p&gt;
 &lt;p&gt;&lt;img alt="I-dont-suffer-from-insanity-I-enjoy-every-minute-of-it" src="images/I-dont-suffer-from-insanity-I-enjoy-every-minute-of-it.jpeg"&gt;&lt;/p&gt;</content><category term="Research"/><category term="Research"/><category term="Alife"/><category term="Softbody"/><category term="Godot"/><category term="Simulation"/></entry><entry><title>Week 1 - Procrastination</title><link href="https://non4to.github.io/week-1-procrastination.html" rel="alternate"/><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2024-01-15:/week-1-procrastination.html</id><summary type="html">&lt;h1&gt;Week 1 - Procrastination&lt;/h1&gt;
-&lt;h3&gt;15-January-2024&lt;/h3&gt;
+&lt;h3&gt;2024-01-15&lt;/h3&gt;
 &lt;p&gt;" I should go back to writing my thesis. " 'Should' being a key word here. Feeling the comfortable heated air coming from laboratory's central heater made starting anything serious almost impossible. It was cold outside and getting cozy in such times made my body and mind adjust …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Week 1 - Procrastination&lt;/h1&gt;
-&lt;h3&gt;15-January-2024&lt;/h3&gt;
+&lt;h3&gt;2024-01-15&lt;/h3&gt;
 &lt;p&gt;" I should go back to writing my thesis. " 'Should' being a key word here. Feeling the comfortable heated air coming from laboratory's central heater made starting anything serious almost impossible. It was cold outside and getting cozy in such times made my body and mind adjust to...being cozy. My normal course of action would be to grab the switch and spend the next hours playing it. However, even with these huge forces pushing against me, I tried to focus.&lt;/p&gt;
 &lt;p&gt;" Ok. Preparing the environment. " First, put the switch away from the table. " If I need to stand up I won't play it. " Second, open youtube and look for a gray noise sound. Risky move. A lot of distractions came up on the screen but one of them was conveniently placed. " ADHD relief music for studying...I'll try this today. " Convenient. Third, open the note-taking app with all the bibliography PDFs. I scratch my head reading the titles, looking for something that I really don't know what it is until my eyes glance at the folders in the app. " Scripts... " I made that folder after I decided on one of this year's resolutions: Write one short story every week. I unconsciously click to open a new note in said folder. " Title... "&lt;/p&gt;
-&lt;p&gt;Update from 24-March-2025: Nope. No stories were written every week. F&lt;/p&gt;</content><category term="Random"/><category term="Story"/><category term="Random"/><category term="Procrastination"/></entry><entry><title>Blog Post Title #1</title><link href="https://non4to.github.io/blog-post-title-1.html" rel="alternate"/><published>2023-09-06T00:00:00+09:00</published><updated>2023-09-06T00:00:00+09:00</updated><author><name>non4to</name></author><id>tag:non4to.github.io,2023-09-06:/blog-post-title-1.html</id><summary type="html">&lt;h1&gt;Blog Post Title #1&lt;/h1&gt;
-&lt;h3&gt;06-September-2023&lt;/h3&gt;
-&lt;p&gt;Bloop!Jump is my first attempt into gamedev! It is a simple platformer where the goal is simple: Get to the top! I tried to make it a little bit difficult so...sorry if it was too much. (Or sorry if it was not at …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Blog Post Title #1&lt;/h1&gt;
-&lt;h3&gt;06-September-2023&lt;/h3&gt;
-&lt;p&gt;Bloop!Jump is my first attempt into gamedev! It is a simple platformer where the goal is simple: Get to the top! I tried to make it a little bit difficult so...sorry if it was too much. (Or sorry if it was not at all lol!) But I decided to blog this game as a story for future self! And for you too, reader.&lt;/p&gt;
-&lt;p&gt;There are a ton, seriously, absolutely A TON of tutorials on how to make games and how to use engines out there. I actually bought a course in Udemy once and did some games in unity during the course, but after I finished, I felt like I learned absolutely nothing. I would come back to unity and everything would look alien to me! That made me abandon it for a while. The pandemic didn't help and some stuff happening at home made me forget about it. To be fair...following tutorials step by step is a thing that never worked for me, at least not when I wanted to learn something that I wanted to apply by myself later.&lt;/p&gt;
-&lt;p&gt;Fast forward, I'm in Japan doing a Master's in CS (something that I always wanted, maybe I can talk about this in another post!) and specially motivated to do stuff I always wanted to do! Like learn how to gamedev, how to write interesting stories for games, study in-depth graph theory...and so I started to play a bit with Pico8. My adviser told me about it. It looked like a fun engine to play and learn. It wasn't that difficult and I saw lots of fun stuff made with it. So I practiced a bit in &lt;a href="https://tcc.lovebyte.party"&gt;Tiny Code Christmas&lt;/a&gt;. It was pretty fun! :D&lt;/p&gt;
-&lt;p&gt;Fast forward more months! I was going through some rough times with anxiety on having to write an phD proposal and doing my master's research. I was checking mastodon during a procrastination session and noticed &lt;a href="https://itch.io/jam/lowrezjam-2023"&gt;LOWRESJAM&lt;/a&gt;) Perfect! It was, honestly, the thing that put my mind at ease a little bit! I was doing my stuff and working on the game alternatively. It was some real good cleansing thing to me. And...I had fun!&lt;/p&gt;
-&lt;p&gt;I totally had 193956398493 ideas to put in this game. I would talk to my wife about the puzzles and story and meanings I wanted to put into the game... only then to remind myself that I should just get something ready. Something done. It was my first game after all. It didn't need to perfect. Hell! It didn't need to be good! It just needed to be.&lt;/p&gt;
-&lt;p&gt;All that considered, I did it! I got a lot of feedback from people in the jam and lots of evaluations! I was just happy that people took their time to play this simple thingy. I got top #101 overall. My first though was... "damn! so close to top100! " But then I just laughed it out. I had fun doing it, fixing it and actually playing it. I still have plans to update it with one or more levels and add some stuff I got feedback on. You can check the game on my itch: &lt;a href="https://djuniou.itch.io/bloop-jump"&gt;Bloop!Jump!&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Welp! Too long for an intro post, but I kinda wanted to separate this one from the "devlog-like" thing I wanted to do later. So yea, next post I intent to talk about the ideas, the challenges the game presented to me and how I solved them!&lt;/p&gt;
-&lt;p&gt;See you in the next one! :D (Yes, the title was intentional!)&lt;/p&gt;</content><category term="Random"/><category term="Intro"/><category term="Random"/><category term="PCG"/><category term="Thoughts"/></entry></feed>
+&lt;p&gt;Update from 24-March-2025: Nope. No stories were written every week. F&lt;/p&gt;</content><category term="Random"/><category term="Story"/><category term="Random"/><category term="Procrastination"/></entry></feed>

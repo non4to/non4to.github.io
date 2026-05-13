@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Building a Custom GBA Handheld with Raspberry Pi Zero 2W</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="non4to">
+
+        <link rel="shortcut icon" href="url-to-favicon">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Felipe Nonato">
+        <meta itemprop="image" content="images/avatar.jpeg">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="https://non4to.github.io/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="https://non4to.github.io/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="https://non4to.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Felipe Nonato ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:image" content="">
+
+        <!-- use font awesome -->
+        <script src="https://kit.fontawesome.com/19b4095771.js" crossorigin="anonymous"></script>
+
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:url" content="https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html">
+    <meta name="twitter:title" content="Felipe Nonato ~ Building a Custom GBA Handheld with Raspberry Pi Zero 2W">
+    <meta name="twitter:description" content="Custom GBA Handheld 2026-05-13 Status: In progress — display, audio, and input working. Final assembly underway. I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they&#39;re both too big. Another thing is that I wanted a device that could …">
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Felipe Nonato ~ Building a Custom GBA Handheld with Raspberry Pi Zero 2W"/>
+    <meta property="og:description" content="Custom GBA Handheld 2026-05-13 Status: In progress — display, audio, and input working. Final assembly underway. I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they&#39;re both too big. Another thing is that I wanted a device that could …"/>
+    <meta property="og:image" content=""/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <!--<center><a href="https://non4to.github.io"><img id="avatar" src="images/avatar.jpeg"></a></center>-->
+    <h1>Felipe Nonato</h1>
+        <p>Phd Student - University of Tsukuba</p>
+
+        <center>
+            <a href="https://non4to.github.io">
+                <img src="https://non4to.github.io/images/avatar.jpeg" id="avatar-redondo">
+            </a>
+        </center>
+    <br>
+
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="/">Home</a></li>
+                <li><a class="nav__link" href="/blog.html">Blog</a></li>
+
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/felipesobraljr/" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/non4to" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-brands fa-github fa-2x"></i>
+                </a>
+                <a href="https://bsky.app/profile/non4to.bsky.social" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-brands fa-bluesky fa-2x"></i>
+                </a>
+                <a href="https://sigmoid.social/@djuniou" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-brands fa-mastodon fa-2x"></i>
+                </a>
+                <a href="https://non4to.itch.io/" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-solid fa-gamepad fa-2x"></i>
+                </a>
+                <a href="mailto:felipencsj@gmail.com" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <i class="fa-solid fa-envelope fa-2x"></i>
+                </a>
+    </p>
+
+    <!-- <p class="social">
+                <a href="https://www.linkedin.com/in/felipesobraljr/" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/non4to" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/github.png"></a>
+                <a href="https://bsky.app/profile/non4to.bsky.social" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/bluesky.png"></a>
+                <a href="https://sigmoid.social/@djuniou" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/mastodon.png"></a>
+                <a href="https://non4to.itch.io/" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/gamepad.png"></a>
+                <a href="mailto:felipencsj@gmail.com" target="_blank"><img
+                        src="https://non4to.github.io/theme/images/icons/envelope.png"></a>
+            <a href="https://non4to.github.io/feeds/all.atom.xml" rel="alternate">
+                <img src="https://non4to.github.io/theme/images/icons/rss.png"></a>
+    </p> -->
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li class="active"><a
+                        href="https://non4to.github.io/category/project.html">Project</a></li>
+                <li><a
+                        href="https://non4to.github.io/category/random.html">Random</a></li>
+                <li><a
+                        href="https://non4to.github.io/category/research.html">Research</a></li>
+        </ul>
+
+        <h2 class="blog_roll_link"><br/>BLOGROLLS</h2>
+        <ul class="navbar">
+                <li><a href="https://getpelican.com/">Pelican</a></li>
+                <li><a href="https://www.python.org/">Python.org</a></li>
+                <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                <li><a href="#">You can modify those links in your config file</a></li>
+        </ul>
+
+</aside>
+
+<!-- Content -->
+<article>
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html" rel="bookmark"
+                                                  title="Permalink to Building a Custom GBA Handheld with Raspberry Pi Zero 2W">Building a Custom GBA Handheld with Raspberry Pi Zero 2W</a></h2>
+            <div class="entry-content blog-post">
+                <h1>Custom GBA Handheld</h1>
+<h3>2026-05-13</h3>
+<p><em>Status: In progress — display, audio, and input working. Final assembly underway.</em></p>
+<p>I really like handheld stuff! Althought I really like my switch and still want to buy myself a steamdeck, I think they're both too big. Another thing is that I wanted a device that could fit in my pocket and could run my and other pico8 games! I never had a Game Boy Advance, so I thought, hey, why not?! Buying one ready felt less interesting than building one. I could unite both of my interests: GameDev and Electronics!</p>
+<p>The challenge: fitting a raspberry pi, a 2.8inch display, GPIO input handling, an audio amplifier inside a shell designed for 2001 hardware — without a PCB, without a kit, just components wired together! Oh yes, there's also the battery! This is my progress so far.</p>
+<h3>System</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Part</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computer</td>
+<td>Raspberry Pi Zero 2 W</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>RetroPie</td>
+</tr>
+<tr>
+<td>Display (Driver)</td>
+<td>ST7789 2.8" SPI TFT (fbcp-ili9341)</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>GPIOnext (GPIO buttons)</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>PAM8302A amplifier</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>RetroPie</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Original GBA case (modified)</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td>2000mAh Li-Po</td>
+</tr>
+<tr>
+<td>Battery Charger</td>
+<td>Mini 18650 TP4056 Lithium Battery Charger</td>
+</tr>
+<tr>
+<td>DC-DC Converter</td>
+<td>Boost Power Supply Module (winova)</td>
+</tr>
+</tbody>
+</table>
+<h3>Display</h3>
+<div style="flex: 1; text-align: center;">
+    <a href="/images/fGBA/new-display.jpeg" target="_blank">
+        <img src="/images/fGBA/new-display.jpeg" 
+                alt="new-display" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;">
+    </a>
+</div>
+
+<p>The first display I tried was an ILI9341. It worked! I got RetroPie running on it and was able to play Celeste on PICO-8. But the screen cracked while I was trying to adapt it do the GBA shell since it didn't fit cleanly inside even with physical modifications to the case. I replaced it with a ST7789 2.8" TFT, which fit the shell window much better. </p>
+<p>Both displays use the same driver: <a href="https://github.com/juj/fbcp-ili9341">fbcp-ili9341</a>. Setting it up requires compiling from source with the correct GPIO pin mappings for the specific wiring. The BCM pin numbering used by the driver doesn't match the physical pin numbers on the header — that caused some initial confusion. One issue I hit: after compilation the display was showing inverted colors. Looking at the driver's documentation, this is a known quirk for certain panels and is handled by a compile flag. My final cmake command was:</p>
+<blockquote>
+<p><code>cmake -DST7789=ON -DGPIO_TFT_DATA_CONTROL=24 -DGPIO_TFT_RESET_PIN=25 -DSPI_BUS_CLOCK_DIVISOR=8 -DDISPLAY_INVERT_COLORS=ON -DSTATISTICS=0 ..</code></p>
+</blockquote>
+<p>Another thing I had to deal is due to how the display fit inside the shell I had to invert its image inside raspberry's boot config. This line inside the archive solved it:</p>
+<blockquote>
+<p><code>display_rotate=2</code></p>
+</blockquote>
+<h3>Input</h3>
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
+
+<div style="flex: 1; text-align: center;">
+    <a href="/images/fGBA/set-up-button-test2.jpeg" target="_blank">
+        <img src="/images/fGBA/set-up-button-test2.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;">
+    </a>
+</div>
+
+<div style="flex: 1; text-align: center;">
+    <video style="width: 100%; max-width: 400px; border-radius: 8px;" controls>
+        <source src="/images/fGBA/procontroller-usage.mp4" type="video/mp4">
+    </video>
+</div>
+
+</div>
+
+<p>Input is handled via <a href="https://github.com/mholgatem/GPIOnext">GPIOnext</a>, which maps GPIO pins to gamepad buttons and exposes them as a standard input device to RetroPie. The GBA shell uses original-style button PCBs — D-pad on the left, A/B/X/Y on the right — which I wired directly to the GPIO header through a breadboard during prototyping.
+I also tested a Pro Controller connected via bluetooth, which worked without additional configuration. GPIOnext handles the native GPIO buttons for the final build.</p>
+<h3>Audio</h3>
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
+
+<div style="flex: 1; text-align: center;">
+    <video style="width: 80%; max-width: 400px; border-radius: 8px;" controls>
+        <source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div style="flex: 1; text-align: center;">
+    <video style="width: 80%; max-width: 400px; border-radius: 8px;" controls>
+        <source src="images/fGBA/monster-hunter-world-rasp-with-sound.mp4" type="video/mp4">
+    </video>
+</div>
+
+</div>
+
+<p>Audio is handled by a PAM8302A class-D amplifier, which takes the Pi's PWM audio output and drives a small speaker. On the Raspberry Pi Zero 2W, audio output through GPIO requires enabling the dtoverlay=pwm-2chan overlay in config.txt. The PAM8302A is compact enough to fit inside the GBA shell alongside the other components.</p>
+<h3>Assembly</h3>
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
+
+<div style="flex: 1; text-align: center;">
+    <a href="images/fGBA/gba-kit.png" target="_blank">
+        <img src="images/fGBA/gba-kit.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;">
+    </a>
+</div>
+
+<div style="flex: 1; text-align: center;">
+    <a href="images/fGBA/gba-kit-pieces.png" target="_blank">
+        <img src="images/fGBA/gba-kit-pieces.png" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;">
+    </a>
+</div>
+
+</div>
+
+<p>The GBA shell required physical modification to fit the hardware pieces. The original PCB mount points and battery compartment don't accommodate the Pi Zero 2W or the display PCB, so I removed material from the inside of the shell with hand tools to make room. The display window also needed adjustment to align with the ST7789 panel. The button PCBs from a GBA replacement kit connect to the GPIO header. Left side handles the D-pad, right side handles the face buttons. Start and Select are wired as separate tactile switches.</p>
+<h3>What is running?</h3>
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
+
+<div style="flex: 1; text-align: center;">
+    <video style="width: 80%; max-width: 400px; border-radius: 8px;" controls>
+        <source src="images/fGBA/steam-link-silksong.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div style="flex: 1; text-align: center;">
+    <a href="images/fGBA/pico8-rasp.jpeg" target="_blank">
+        <img src="images/fGBA/pico8-rasp.jpeg" 
+                alt="gpio-test" 
+                style="width:80%; max-width: 400px; height: auto; border-radius: 8px; cursor: zoom-in;">
+    </a>
+</div>
+
+</div>
+
+<p>With display, input, and audio working, the system runs:</p>
+<ul>
+<li>RetroPie — the main OS and emulation frontend</li>
+<li>PICO-8 — integrated as a RetroPie system; plays all PICO-8 cartridges</li>
+<li>Steam Link — tested and working via command line; frontend integration still in progress</li>
+</ul>
+<h3>What's next?</h3>
+<ul>
+<li>Re-test sound system before soldering cabes</li>
+<li>Final soldering — moving everything from breadboard to permanent connections</li>
+<li>Fitting the Pi, amplifier, and speaker inside the shell with the battery</li>
+<li>Power management: The power button must schedules the pi to turn off and not just disconnect the battery as this might corrupt the SD card with the OS.<ul>
+<li>Two button solution: One to turn the pi off and a hidden one that disconnects the pi</li>
+</ul>
+</li>
+<li>Steam Link frontend integration so it launches from the RetroPie menu</li>
+</ul>
+            </div>
+            <div class="post_list">
+                <span>By </span>
+                <a href="https://non4to.github.io/author/non4to.html">@non4to</a>
+                <span> in </span>
+                <span class="post_category"><a href="https://non4to.github.io/category/project.html" rel="bookmark"
+                                               title="Permalink to Project">[ Project ]</a></span>
+                <span class="post_date">水 13 5月 2026</span>
+                <div><span>Tags : </span>
+                            <span><a href="https://non4to.github.io/tag/hardware.html">#Hardware, </a></span>
+                            <span><a href="https://non4to.github.io/tag/handheld.html">#Handheld, </a></span>
+                            <span><a href="https://non4to.github.io/tag/project.html">#Project, </a></span>
+                </div>
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html&text=Building a Custom GBA Handheld with Raspberry Pi Zero 2W&via="><img
+                            src="https://non4to.github.io/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://non4to.github.io/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html&t=Building a Custom GBA Handheld with Raspberry Pi Zero 2W"><img
+                            src="https://non4to.github.io/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html&title=Building a Custom GBA Handheld with Raspberry Pi Zero 2W"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://non4to.github.io/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Building a Custom GBA Handheld with Raspberry Pi Zero 2W&amp;body=Viens découvrir un article à propos de [Building a Custom GBA Handheld with Raspberry Pi Zero 2W] sur le site de non4to. https://non4to.github.io/building-a-custom-gba-handheld-with-raspberry-pi-zero-2w.html"
+                            title="Share by Email" target="_blank"><img
+                            src="https://non4to.github.io/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+        </article>
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            Blog powered by <a href="http://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a href="http://python.org">Python</a>.
+            Theme adapted from <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a> by <a
+                href="https://parbhatpuri.com/">@parbhat</a>.
+        </p>
+    </footer>
+
+
+</body>
+</html>
