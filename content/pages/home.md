@@ -29,28 +29,34 @@ Currently, I'm a PhD researcher at the University of Tsukuba working with evolut
     Artificial Life simulation of softbody organisms that self-replicate, form physical attachments, and evolve behavior over time. Each organism carries a gene encoding movement, attachment, and survival strategies. Built in Godot 4 with Rapier2D.
     ![SoftbodyGodot demo]({static}/images/softbodygodot-demo.gif)
 
-*   **fGBA - The pico8 game console (2025 - Current)**  
+*   **fGBA - The pico8 game console**  
     \-- [click for details!]({filename}/posts/2026-05-13.md)
     A retro handheld console built from scratch inside a Game Boy Advance shell. Powered by a Raspberry Pi Zero 2W, with a custom SPI display pipeline (ILI9341V + fbcp-ili9341), GPIO button input, PAM8302A audio amplifier, 2000mAh battery with boost converter and charger module. Running RetroPie, PICO-8 and steam link.
-    Display, audio, and input are fully functional. Currently in final assembly.
     <div style="text-align: center; margin: 20px 0;">
     <video width="80%" height="50%" controls>
         <source src="images/fGBA/celeste-rasp-with-sound.mp4" type="video/mp4">
     </video>
     <p><i>fGBA: PICO-8 running on ILI9341V display.</i></p></div>
 
-*   **RGPlants - PROCJAM2024 (2024)**  
+*   **RGPlants - PROCJAM2024**  
     \-- [/non4to/PROCJAM-2024](https://github.com/non4to/PROCJAM-2024)  
     Open-ended evolution simulation where 4,096 color-coded organisms spread, blend, and mutate across a grid. No fitness function — only emergent patterns from local neighbor interactions. Built with Python and Pygame. Submitted to PROCJAM 2024.
     ![RGPlants demo]({static}/images/procjam2024-demo.gif)
+
+*   **YASOULS (Yet Another Soulslike) - (in progress)**  
+    \-- [/non4to/YASOULS](https://github.com/non4to/YASOULS)  
+    The Soulslike in the name is mostly because I loved the parry mechanic in From Software's Sekiro:Shadows die twice. I got inspired! I didn't want to make a 3D though, I also really like beat'em ups. So YASOULs is born! Another motivation to start this project was that I really want to be able to play in fGBA.
+
+    YASOULS is an action-oriented game focusing on parry mechanics, modular behavior for enemies, and a planned evolutionary AI backend.
+    ![YASOULS example]({static}/images/yabetup.gif)
     
-*   **RPG NPC file creator (2023)**  
+<!-- *   **RPG NPC file creator (2023)**  
     \-- [/non4to/CharacterFiles](https://github.com/non4to/CharacterFiles)  
     Genetic algorithm that evolves balanced TTRPG character sheets toward a user-defined win rate. Fitness evaluated via Monte Carlo simulation — 1,000 combat simulations per individual. Built with Python.
     
 *   **Rhymming and Saying (2023)**  
     \-- [/non4to/Rhymming-and-Sayings](https://github.com/non4to/Rhymming-and-Sayings)  
-    Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python.
+    Procedural text generator combining Context-Free Grammars with phoneme-based rhyme matching via NLTK/WordNet. Produces structurally valid, rhyming poems. Built with Python. -->
 
 *   **Small games and interactive demos.**  
       
